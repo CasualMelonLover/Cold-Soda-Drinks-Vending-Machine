@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main() {
+
+    float moneyEntered, totalPrice = 0, remainingMoney;
+    int choice, quantity;
+
+    printf("\nCold Soda Drinks Vending Machine");
+    printf("\nEnter the amount of money you have: $");
+    scanf("%f", &moneyEntered);
+
+
+    do {
+        printf("\nMenu:\n");
+        printf("1. CokaCola - $4.25\n");
+        printf("2. Royal - $4.50\n");
+        printf("3. Mountain Dew - $4.75\n");
+        printf("4. Exit\n");
+
+       
+        printf("Enter your choice (1-4): ");
+        scanf("%d", &choice);
+
+     
+        switch (choice) {
+            case 1:
+                printf("Enter the quantity for CokaCola: ");
+                scanf("%d", &quantity);
+                totalPrice += quantity * 4.25;
+                break;
+
+            case 2:
+                printf("Enter the quantity for Royal: ");
+                scanf("%d", &quantity);
+                totalPrice += quantity * 4.50;
+                break;
+
+            case 3:
+                printf("Enter the quantity for Mountain Dew: ");
+                scanf("%d", &quantity);
+                totalPrice += quantity * 4.75;
+                break;
+
+            case 4:
+                
+                break;
+
+            default:
+                printf("Invalid choice. Please enter a number between 1 and 4.\n");
+        }
+
+    } while (choice != 4 && totalPrice <= moneyEntered);
+
+  
+    remainingMoney = moneyEntered - totalPrice;
+
+    
+    printf("\nTotal money spent: $%.2f\n", totalPrice);
+    printf("Remaining money: $%.2f\n", remainingMoney);
+
+    return 0;
+}
